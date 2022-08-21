@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-function App() {
+export function RandomStudents() {
   const [student, setStudent] = useState(null);
     
   useEffect(async () => {
@@ -23,5 +23,3 @@ function App() {
     student ? <h1>{student.name}</h1> : "Carregando..."
   )
 }
-
-export default App;
