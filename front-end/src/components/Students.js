@@ -9,7 +9,6 @@ export function Students() {
     try {
       const response = await axios.get(`${API_URL}/students`);
       const students = response.data;
-      console.log(response.data)
       if(students.length === 0){
         alert("Putz! Não há estudantes cadastrados para o sorteio!");
       } else {
