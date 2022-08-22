@@ -1,0 +1,20 @@
+version: "3"
+services:
+  postgres-sorteador:
+    image: postgres
+    container_name: postgres-sorteador
+    restart: always
+    ports:
+      - 3456:5432
+    env_file:
+      - back-end/.env.test
+
+  node-sorteador:
+    container_name: node-sorteador
+    build: ./back-end
+    ports:
+      - 5000:5000
+    depends_on:
+      - postgres-sorteador
+    env_file:
+      - back-end/.env.test
