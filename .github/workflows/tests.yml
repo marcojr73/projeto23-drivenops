@@ -13,8 +13,8 @@ jobs:
           envkey_POSTGRES_PASSWORD: "4815162342"
           envkey_POSTGRES_HOST: "postgres-sorteador"
           envkey_POSTGRES_PORT: "2345"
-          envkey_POSTGRES_DATABASE: "students"
-          envkey_DATABASE_URL: "postgresql://postgres:4815162342@postgres-sorteador:5432/students"
+          envkey_POSTGRES_DATABASE: "students-test"
+          envkey_DATABASE_URL: "postgresql://postgres:4815162342@postgres-sorteador:5432/students-test"
           directory: back-end/
           file_name: .env.test
           fail_on_empty: true
