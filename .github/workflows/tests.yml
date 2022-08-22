@@ -1,0 +1,25 @@
+name: Validation Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  Validation-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Make a new envfile
+        uses: SpicyPizza/create-envfile@v1
+        with:
+          envkey_POSTGRES_USER: "postgres"
+          envkey_POSTGRES_PASSWORD: "4815162342"
+          envkey_POSTGRES_HOST: "postgres-sorteador"
+          envkey_POSTGRES_PORT: "5432"
+          envkey_POSTGRES_DATABASE: "students"
+          envkey_DATABASE_URL: "postgresql://postgres:4815162342@postgres-sorteador:5432/students"
+          file_name: ".env.docker.test"
+      - name: Run Tests
+        run: docker-compose -f docker-compose-tests.yml run node_sorteador_app npm run test:merge
