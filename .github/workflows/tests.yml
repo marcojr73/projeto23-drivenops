@@ -21,5 +21,3 @@ jobs:
 
       - name: Run tests
         run: docker-compose -f docker-compose-test.yml run node-sorteador npm run test
-      - name: Build
-        run: npm i && npm run build
